@@ -59,6 +59,8 @@ class User {
 					$_SESSION['first_name'] = $this->getFirstName();
 					$_SESSION['last_name']= $this->getLastName();
 					
+					echo print_r($_SESSION);
+					
 					header("Location: ../");
 				}
 				else {
