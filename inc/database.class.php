@@ -236,8 +236,15 @@ class Database {
 	}
 	
 	public function changePassword($user, $old, $new) {
-		//$check = password_verify($old, /*DbPass*/);
+		$dbPass = $this->getDatabasePass($user);
+		$check = password_verify($old, $dbPass);
 		
+		if (!$check)
+		{
+			return false;
+		}
+		
+		$new = password_hash($new, PASSWORD_DEFAULT);
 		
 		$data = array($new, $user);
 		$result = $this->database->prepare("UPDATE login SET password=? WHERE username=? ;");

@@ -1,4 +1,5 @@
 <?php
+	SESSION_START();
 	include("../inc/database.class.php");
 	$dbOb = new Database("grademe");
 	
@@ -7,6 +8,7 @@
 	if (isset($_REQUEST['newPass'])) {
 		$oldPass = $_REQUEST['oldPass'];
 		$newPass = $_REQUEST['newPass'];
+		$username = $_SESSION['username'];
 		
 		$isSuccessful = $dbOb->changePassword($username, $oldPass, $newPass);
 		$firstPass = false;
@@ -44,13 +46,13 @@
 									<?php
 										if(isset($_SESSION['username'])) {
 											echo "
-												<a href='logout.php'>Sign Out</a>
+												<a href='../user/logout.php'>Sign Out</a>
 											";
 										}
 										else {
 											echo "
-												<a href='signup.php'>Sign Up</a>
-												<a href='login.php'>Login</a>
+												<a href='../user/signup.php'>Sign Up</a>
+												<a href='../user/login.php'>Login</a>
 											";
 										}
 									?>
@@ -80,7 +82,7 @@
 									Confirm New Password<br/>
 									<input type="password" name="newPassConfirm" /><br/><br/>
 									
-									<?php if(!$firstPass) {if(!$isSuccessful) { echo "Password is Incorrect!<br/><br/>"; } else { echo "Password changed successfully." }} ?>
+									<?php if(!$firstPass) {if(!$isSuccessful) { echo "Password is Incorrect!<br/><br/>"; } else { echo "Password changed successfully."; }} ?>
 									
 									<input type="submit" value="Login"/>
 								</form>
