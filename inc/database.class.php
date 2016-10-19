@@ -11,7 +11,7 @@ class Database {
 	//private $dsn = ;
 	
 	public function __construct($dbname) {
-		$this->database = new PDO("pgsql:host=$this->dbhost;dbname=$this->dbname", $this->dbuser, $this->dbpass);
+		$this->database = new PDO("pgsql:dbname=$this->dbname;host=$this->dbhost;user=$this->dbuser;password=$this->dbpass";
 	}
 	
 	public function query($sql) {
