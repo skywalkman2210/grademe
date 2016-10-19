@@ -8,7 +8,7 @@
 	if(isset($_REQUEST['username'])) {
 		$userOb = new User();
 		$userOb->login($_REQUEST['username'], $_REQUEST['password']);
-		//$isSuccessful = $userOb->verifyLogin();
+		$isSuccessful = $userOb->verifyLogin();
 	}
 	
 ?>
