@@ -4,9 +4,7 @@
 	
 	include("inc/database.class.php");
 	$dbOb = new Database("grademe");
-
-	$res = $dbOb->query("SELECT * FROM student");
-	//$res = $dbOb->getUserId('gsantella', 1);
+	$res = $dbOb->getUserId('gsantella', 1);
 ?>
 <!--
 	Minimaxing by HTML5 UP
@@ -39,7 +37,30 @@
 									<a href="onecolumn.php">One Column</a>
 									<a href="threecolumn.html">Three Column</a>
 									-->
-								
+									<?php
+										if(isset($_SESSION['username'])) {
+											if ($_SESSION['isTeach'] == 0) {
+												echo "<a href='grade'>My Grades</a>";
+											}
+											else {
+												echo "<a href='course'>My Courses</a>
+													  <a href='course/students.php'>My Students</a>";
+											}
+										}
+										
+										if(isset($_SESSION['username'])) {
+											echo "
+												<a href='account'>My Account</a>
+												<a href='user/logout.php'>Sign Out</a>
+											";
+										}
+										else {
+											echo "
+												<a href='user/signup.php'>Sign Up</a>
+												<a href='user/login.php'>Login</a>
+											";
+										}
+									?>
 									<!-- Keep for later, maybe use php to echo it?  class="current-page-item"-->
 									<a href="index.php">Homepage</a>
 									
@@ -56,6 +77,9 @@
 
 					<div id="banner">
 						<h2>
+							<?php if(isset($_SESSION['username'])) { echo "Welcome back " . $_SESSION['first_name']; } 
+									else { echo "Welcome to GradeMe!"; } 
+									?>
 						</h2>
 						<span>A smarter way to keep your grades, and students, in track.</span>
 					</div>
