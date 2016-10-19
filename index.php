@@ -3,8 +3,9 @@
 	//SESSION_START();
 	
 	include("inc/database.class.php");
-	//$dbOb = new Database("grademe");
+	$dbOb = new Database("grademe");
 
+	$res = $dbOb->query("SELECT * FROM student");
 	//$res = $dbOb->getUserId('gsantella', 1);
 ?>
 <!--
@@ -55,6 +56,7 @@
 
 					<div id="banner">
 						<h2>
+							<?php foreach ($res as $re) { echo $re['first_name'] } ?>
 						</h2>
 						<span>A smarter way to keep your grades, and students, in track.</span>
 					</div>
