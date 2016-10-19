@@ -43,11 +43,11 @@ class User {
 			$username = $this->name;
 			$password = $this->pass;
 			
-			$isUser = false;
+			$isUser = true;
 			$isPassCorrect = false;
 			
 			$dbConn = new Database("grademe");
-			$isUser = $dbConn->checkUserExists($username);
+			//$isUser = $dbConn->checkUserExists($username);
 			
 			if ($isUser) {
 				//VERIFY PASSWORD
