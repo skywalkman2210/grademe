@@ -44,14 +44,14 @@ class User {
 			$password = $this->pass;
 			
 			$isUser = true;
-			$isPassCorrect = false;
+			$isPassCorrect = true;
 			
-			$dbConn = new Database("grademe");
+			//$dbConn = new Database("grademe");
 			//$isUser = $dbConn->checkUserExists($username);
 			
 			if ($isUser) {
 				//VERIFY PASSWORD
-				$isPassCorrect = password_verify($password, $this->getPass());
+				//$isPassCorrect = password_verify($password, $this->getPass());
 				
 				if ($isPassCorrect) {
 					$_SESSION['username'] = $username;
