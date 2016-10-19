@@ -56,7 +56,6 @@
 
 					<div id="banner">
 						<h2>
-							<?php foreach ($res as $re) { echo $re['first_name'] } ?>
 						</h2>
 						<span>A smarter way to keep your grades, and students, in track.</span>
 					</div>
