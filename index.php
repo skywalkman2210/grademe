@@ -1,9 +1,9 @@
 <!DOCTYPE HTML>
 <?php
-	SESSION_START();
+	//SESSION_START();
 	
-	include("inc/database.class.php");
-	$dbOb = new Database("grademe");
+	//include("inc/database.class.php");
+	//$dbOb = new Database("grademe");
 	
 	echo "Connected!";
 	//$res = $dbOb->getUserId('gsantella', 1);
