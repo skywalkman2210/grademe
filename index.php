@@ -1,4 +1,12 @@
 <!DOCTYPE HTML>
+<!--<?php
+	SESSION_START();
+	
+	include("inc/database.class.php");
+	$dbOb = new Database("grademe");
+	
+	//$res = $dbOb->getUserId('gsantella', 1);
+?>-->
 <!--
 	Minimaxing by HTML5 UP
 	html5up.net | @ajlkn
