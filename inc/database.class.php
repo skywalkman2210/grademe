@@ -1,17 +1,18 @@
 <?php
 
 class Database {
-	private $dbhost = "localhost";
-	private $dbname = "grademe";
-	private $dbuser = "root";
-	private $dbpass = "";
+	//This is for the heroku DB
+	private $dbhost = "ec2-54-235-250-156.compute-1.amazonaws.com";
+	private $dbname = "dapb2120qc5g49";
+	private $dbuser = "uvyilzoqwmebxe";
+	private $dbpass = "ClG9_iyWAV61zxhyki41c22xZV";
 	private $database;
 	
 	//private $dsn = ;
 	
 	public function __construct($dbname) {
 		$this->dbname = $dbname;
-		$this->database = new PDO("mysql:host=$this->dbhost;dbname=$this->dbname", $this->dbuser, $this->dbpass);
+		$this->database = new PDO("pgsql:host=$this->dbhost;dbname=$this->dbname", $this->dbuser, $this->dbpass);
 	}
 	
 	public function query($sql) {
