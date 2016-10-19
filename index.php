@@ -2,7 +2,7 @@
 <?php
 	SESSION_START();
 	
-	include("inc/database.class.php");
+	//include("inc/database.class.php");
 	$dbOb = new Database("grademe");
 	
 	$res = $dbOb->getUserId('gsantella', 1);
